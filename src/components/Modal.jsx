@@ -6,7 +6,7 @@ const Modal = ({onClose, isOpen, children}) => {
     <>{
         isOpen&&(
         <>
-            <div className='relative z-50 bg-white w-10/12 mx-auto min-h-fit p-3 flex flex-col rounded-md'>
+            <div className='relative z-50 bg-white w-10/12 max-w-[370px] mx-auto min-h-fit p-3 flex flex-col rounded-md'>
                 <CircleX onClick={onClose} className='ml-auto'/>
                 {children}
             </div>
