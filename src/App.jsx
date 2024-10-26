@@ -69,7 +69,7 @@ function App() {
       })
 
       const filteredContacts=contactLists.filter((contact)=>
-        contact.Name.toLowerCase().includes(value.toLowerCase())
+        contact.name.toLowerCase().includes(value.toLowerCase())
       )
  
       console.log(filterContacts)

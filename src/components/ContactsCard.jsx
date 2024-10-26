@@ -25,8 +25,8 @@ const ContactsCard = ({contact}) => {
                     <CircleUserRound size={30} className='text-orange'/>
 
                     <div>
-                    <h2 className='font-bold'>{contact.Name}</h2>
-                    <p className='text-sm font-semibold'>{contact.Email}</p>
+                    <h2 className='font-bold'>{contact.name}</h2>
+                    <p className='text-sm font-semibold'>{contact.email}</p>
                     </div>
 
                     <div className='flex gap-1 ml-auto'>

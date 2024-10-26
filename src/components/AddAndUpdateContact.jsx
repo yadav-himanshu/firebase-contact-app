@@ -48,8 +48,8 @@ const AddAndUpdateContact = ({isOpen,onClose,isUpdate,contact}) => {
                 validationSchema={contactValidationSchema}
                 initialValues={isUpdate
                     
-                    ?{name:contact.Name,
-                    email:contact.Email,}
+                    ?{name:contact.name,
+                    email:contact.email,}
                     :{
                     name: '',
                     email: '',
