@@ -89,6 +89,7 @@ function App() {
               <Search size={21} className='text-white absolute ml-2'/>
               <input
                 onChange={filterContacts}
+                placeholder='Search by name'
                 className='bg-transparent border border-white rounded-md flex-grow p-2 text-white pl-9' type="text" />
             </div>
 
