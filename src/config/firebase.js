@@ -1,6 +1,7 @@
 // Import Firebase SDKs
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
+import { getAuth, GoogleAuthProvider } from "firebase/auth";
 import { getAnalytics } from "firebase/analytics";
 
 // Firebase config using Vite env variables
@@ -20,6 +21,9 @@ export const app = initializeApp(firebaseConfig);
 // Firestore
 export const db = getFirestore(app);
 
+// Auth
+export const auth = getAuth(app);
+export const googleProvider = new GoogleAuthProvider();
+
 // Analytics (safe for Vite)
-export const analytics =
-  typeof window !== "undefined" ? getAnalytics(app) : null;
+export const analytics = typeof window !== "undefined" ? getAnalytics(app) : null;

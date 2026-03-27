@@ -1,130 +1,99 @@
-# Firebase Contact App
+# 📱 ContactHub
 
-A simple contact management web application built with **React** and **Firebase**. This app allows users to **add, update, delete**, and **search** for contacts, with all data stored and synchronized using Firebase Firestore. 
+**ContactHub** is a premium, full-stack contact management platform built with **React** and **Firebase**. It transforms the traditional address book into a collaborative social experience, featuring real-time sharing, secure authentication, and a data-driven dashboard.
 
-The app is built with a **responsive design**, making it fully accessible on both desktop and mobile devices.
+> **Live Demo**: [ContactHub Live](https://firebase-contact-app-gold.vercel.app/)
 
-> **Live Demo**: [Firebase Contact App Live](https://firebase-contact-app-gold.vercel.app/)
+---
 
-## Features
+## ✨ Key Features
 
-- **Add New Contacts**: Users can add new contacts by providing a name and email.
-- **Update Existing Contacts**: Users can update the details of an existing contact.
-- **Delete Contacts**: Users can delete contacts from the database.
-- **Search Contacts**: Search through contacts by name.
-- **Real-time Data Sync**: The app automatically syncs with Firebase Firestore to update contact lists in real-time.
-- **Responsive Layout**: Fully responsive UI to ensure great user experience on both desktop and mobile.
-- **Modal UI**: A modal is used for adding or updating contacts.
-- **Toast Notifications**: Provides success and error messages on adding, updating, or deleting contacts.
+### 🔐 Advanced Authentication
+- **Secure Onboarding**: Sign up with traditional email/password or use **Google Social Login** for instant access.
+- **Automated Sync**: User profiles are automatically synced to a global sharing directory upon login.
+- **Account Protection**: Built-in re-authentication guards for sensitive email/password updates.
 
-## Tech Stack
+### 🤝 Professional Contact Sharing
+- **Request/Approval Workflow**: Securely request access to view another user's contacts via their email.
+- **Granular Control**: Approve, deny, or revoke access at any time from the centralized sharing settings.
+- **Dynamic Views**: People who share their contacts with you appear automatically in your sidebar for instant access.
 
-- **Frontend**: React, Vite, Tailwind CSS
-- **Backend**: Firebase Firestore (Database)
-- **Form Validation**: Formik, Yup
-- **State Management**: React Hooks (`useState`, `useEffect`)
-- **UI Components**: React Icons, React Toastify
-- **Deployment**: Vercel (for live deployment)
+### 📊 Real-time Dashboard & Insights
+- **Stats Overview**: Get immediate insights into your Total Contacts, Favorites, and Shared Connections.
+- **Live Search**: Instant, debounced filtering of your entire network.
+- **Persistent Notifications**: A Firestore-backed activity feed tracks all contact additions, edits, and sharing requests.
 
-## 🔗 Live Demo
+### 💎 Premium UI/UX
+- **Soft UI Design**: A modern, glassmorphic aesthetic focused on readability and elegance.
+- **Fluid Animations**: Smooth transitions and layout changes powered by **Framer Motion**.
+- **Iconic Visuals**: Crisp, intuitive interface using the **Lucide** icon library.
 
-👉 [Firebase Contact App Live Demo](https://firebase-contact-app-gold.vercel.app/)
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend**: React 18, Vite, Tailwind CSS
+- **Animations**: Framer Motion
+- **Icons**: Lucide React
+- **Backend / DB**: Firebase Firestore (Real-time DB)
+- **Auth**: Firebase Authentication (Email + Google Social)
+- **Notifications**: React Toastify (Toasts) + Firestore (Persistent Log)
+
+---
 
 ## 📁 Folder Structure
 
 ```
 src/
-├── components/
-│ ├── AddAndUpdateContact.jsx
-│ ├── ContactNotFound.jsx
-│ ├── ContactsCard.jsx
-│ ├── Modal.jsx
-│ ├── Navbar.jsx
-├── hooks/
-│ └── useDisclose.js
-├── config/
-│ └── firebase.js
-├── App.jsx
-├── index.css
-└── main.jsx
-```
-
-
-## ⚙️ Setup & Installation
-
-1. Clone the repository
-
-```bash
-git clone https://github.com/yadav-himanshu/firebase-contact-app.git
-cd firebase-contact-app
-```
-
-2. Install dependencies
-
-```bash
-npm install
-```
-
-3. Add environment variables
-   Create a `.env` file in the root:
-
-```env
-VITE_FIREBASE_API_KEY=your-api-key
-VITE_FIREBASE_AUTH_DOMAIN=your-auth-domain
-VITE_FIREBASE_PROJECT_ID=your-project-id
-VITE_FIREBASE_STORAGE_BUCKET=your-storage-bucket
-VITE_FIREBASE_MESSAGING_SENDER_ID=your-sender-id
-VITE_FIREBASE_APP_ID=your-app-id
-VITE_FIREBASE_MEASUREMENT_ID=your-measurement-id
-
-```
-
-4. Run the app
-
-```bash
-npm run dev
+├── components/          # Reusable UI & Layout components
+├── context/             # Auth and Notification global state
+├── hooks/               # Custom hooks for Auth and state
+├── pages/               # Feature-rich views (Dashboard, Settings, Sharing)
+├── services/            # Firestore service layer (Contact, Access)
+├── utils/               # Helper utilities & class merging (cn)
+├── config/              # Firebase & App configuration
+└── App.jsx              # Main routing and transition logic
 ```
 
 ---
 
+## ⚙️ Setup & Installation
 
-## Features Walkthrough
+1. **Clone & Install**
+   ```bash
+   git clone https://github.com/yadav-himanshu/firebase-contact-app.git
+   cd firebase-contact-app
+   npm install
+   ```
 
-### Add and Update Contacts
+2. **Configure Firebase**
+   Create a `.env` file in the root and add your credentials:
+   ```env
+   VITE_FIREBASE_API_KEY=xxx
+   VITE_FIREBASE_AUTH_DOMAIN=xxx
+   VITE_FIREBASE_PROJECT_ID=xxx
+   VITE_FIREBASE_STORAGE_BUCKET=xxx
+   VITE_FIREBASE_MESSAGING_SENDER_ID=xxx
+   VITE_FIREBASE_APP_ID=xxx
+   ```
 
-The app allows adding new contacts through a modal interface.
+3. **Run Development Server**
+   ```bash
+   npm run dev
+   ```
 
-If a user wants to update an existing contact, they can do so by opening the same modal and making the necessary changes.
+4. **Security Rules**
+   For full sharing functionality, deploy the Firestore Security Rules as detailed in the project's [walkthrough.md].
 
-### Real-time Data Sync
-
-Firebase Firestore is used to store the contact data, and the app listens to changes in real-time using Firestore's `onSnapshot` listener.
-
-Any change in the contacts database (add, update, delete) is immediately reflected in the app.
-
-### Search Functionality
-
-The app includes a search bar where users can search for contacts by name. The search is case-insensitive and dynamically filters the contact list based on the search input.
-
-### Contact Deletion
-
-Contacts can be deleted by clicking the delete icon next to the contact. The app uses Firestore's `deleteDoc` method to remove a contact from the database.
-
-## Future Improvements
-
-- **Authentication:** Add user authentication (sign-in, sign-up) using Firebase Authentication.
-- **Contact Categorization:** Implement categories (friends, work, family, etc.) for contacts.
-- **Offline Mode:** Implement offline capabilities to work when there's no internet connection.
-- **Unit Testing:** Add unit and integration tests using Jest or React Testing Library.
-- **Dark Mode:** Implement dark mode for the UI.
-
+---
 
 ## 👨‍💻 Author
 
 **Himanshu Yadav**
-Frontend Developer
+*Frontend Developer & Product Designer*
 
-- GitHub: *https://github.com/yadav-himanshu*
-- LinkedIn: *https://www.linkedin.com/in/himanshu-yadav-0706a1137*
+- **GitHub**: [yadav-himanshu](https://github.com/yadav-himanshu)
+- **LinkedIn**: [Himanshu Yadav](https://www.linkedin.com/in/himanshu-yadav-0706a1137)
 
 ---
+*Built with ❤️ for a better contact management experience.*
